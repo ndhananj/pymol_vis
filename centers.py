@@ -15,7 +15,7 @@ def get_centers(stats_file):
     coords = df[[10,11,12]]
     return coords
 
-def output_centers(centers,element, out_file):
+def output_centers(centers,element, out_file, xlabel=10, ylabel=11, zlabel=12):
     df_len = len(centers.index)
     df_data={ \
        'line_idx':np.arange(df_len), \
@@ -30,9 +30,9 @@ def output_centers(centers,element, out_file):
        'residue_number':[1]*df_len, \
        'insertion':[' ']*df_len, \
        'blank_3':['   ']*df_len, \
-       'x_coord':centers[[10]].to_numpy().reshape((df_len,)), \
-       'y_coord':centers[[11]].to_numpy().reshape((df_len,)), \
-       'z_coord':centers[[12]].to_numpy().reshape((df_len,)), \
+       'x_coord':centers[[xlabel]].to_numpy().reshape((df_len,)), \
+       'y_coord':centers[[ylabel]].to_numpy().reshape((df_len,)), \
+       'z_coord':centers[[zlabel]].to_numpy().reshape((df_len,)), \
        'occupancy':[0.50]*df_len, \
        'b_factor':[35.88]*df_len, \
        'blank_4':['      ']*df_len, \
